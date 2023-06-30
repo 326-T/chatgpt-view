@@ -1,39 +1,27 @@
-import * as React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import NavigationDrawer from "./NavigationDrawer";
-import AppBar from "./AppBar";
+import React, { useContext } from "react";
+import CustomDrawer from "./CustomDrawer";
+import { Grid } from "@mui/material";
+import ThreadList from "./ThreadList";
 
-const defaultTheme = createTheme();
+const drawerWidth: number = 300;
 
 interface DashBoardLayoutProps {
   children: React.ReactNode;
 }
 
 const DashBoardLayout: React.FC<DashBoardLayoutProps> = ({ children }) => {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <NavigationDrawer open={open} toggleDrawer={toggleDrawer} />
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            height: "100vh",
-          }}
-        >
+    <>
+      <CustomDrawer />
+      <Grid container>
+        <Grid item md={2} style={{ height: "100vh" }}>
+          <ThreadList />
+        </Grid>
+        <Grid item md={10} style={{ height: "100vh" }}>
           {children}
-        </Box>
-      </Box>
-    </ThemeProvider>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 
