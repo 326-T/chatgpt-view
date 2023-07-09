@@ -4,7 +4,8 @@ import { Thread, ThreadInit } from "@/app/type";
 import { Box, List } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import ThreadCard from "./ThreadCard";
+import ThreadCard from "@/components/ThreadCard";
+import AddThreadForm from "@/components/AddThreadForm";
 
 export default function ThreadList({}: {}) {
   const theme = useTheme();
@@ -31,6 +32,8 @@ export default function ThreadList({}: {}) {
 
   return (
     <List sx={{ height: 1, p: 0 }}>
+      <AddThreadForm />
+
       {threads.map((thread) => (
         <ThreadCard thread={thread} />
       ))}
