@@ -1,13 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import CustomDrawer from "./organisms/CustomDrawer";
 import { Grid } from "@mui/material";
-import ThreadList from "./organisms/ThreadList";
-
-const drawerWidth: number = 300;
-
-interface DashBoardLayoutProps {
-  children: React.ReactNode;
-}
+import SideBar from "./molecules/SideBar";
 
 export default function DashBoardLayout({
   children,
@@ -20,10 +14,10 @@ export default function DashBoardLayout({
     <>
       <CustomDrawer />
       <Grid container>
-        <Grid item md={2.4} style={{ height: "100vh" }}>
-          <ThreadList id={id} />
+        <Grid item md={12 / 5} style={{ height: "100vh" }}>
+          <SideBar id={id} />
         </Grid>
-        <Grid item md={9.6} style={{ height: "100vh" }}>
+        <Grid item md={(12 * 4) / 5} style={{ height: "100vh" }}>
           {children}
         </Grid>
       </Grid>

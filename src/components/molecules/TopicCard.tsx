@@ -58,20 +58,22 @@ export default function TopicCard({
           </Typography>
         </Box>
       </Link>
-      <Box sx={{ display: "flex", alignItems: "centor" }}>
-        <Button
-          sx={{ p: 0, mr: 1, minWidth: 0, color: "inherit" }}
-          onClick={() => {}}
-        >
-          <EditIcon style={{ fontSize: 16 }} />
-        </Button>
-        <Button
-          sx={{ p: 0, minWidth: 0, color: "inherit" }}
-          onClick={() => deleteTopic(topic.id)}
-        >
-          <DeleteForeverIcon style={{ fontSize: 16 }} />
-        </Button>
-      </Box>
+      {highlight && (
+        <Box sx={{ display: "flex", alignItems: "centor" }}>
+          <Button
+            sx={{ p: 0, mr: 1, minWidth: 0, color: "inherit" }}
+            onClick={() => {}}
+          >
+            <EditIcon style={{ fontSize: 16 }} />
+          </Button>
+          <Button
+            sx={{ p: 0, minWidth: 0, color: "inherit" }}
+            onClick={() => deleteTopic(topic.id)}
+          >
+            <DeleteForeverIcon style={{ fontSize: 16 }} />
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }

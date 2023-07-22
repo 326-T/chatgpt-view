@@ -4,7 +4,7 @@ import { Box, List } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import TopicCard from "@/components/molecules/TopicCard";
-import AddTopicForm from "@/components/molecules/AddTopicForm";
+import AddTopicForm from "@/components/molecules/AddTopicCard";
 import { fetchTopics } from "@/app/api/TopicApi";
 
 export default function TopicList({ id }: { id: string }) {
@@ -18,19 +18,7 @@ export default function TopicList({ id }: { id: string }) {
   }, []);
 
   return (
-    <Box
-      sx={{
-        width: 1,
-        height: 1,
-        p: 1,
-        m: 0,
-        boxSizing: "border-box",
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-      }}
-    >
-      <AddTopicForm topic={topic} />
-
+    <Box overflow="auto" sx={{ width: 1, p: 1, boxSizing: "border-box" }}>
       {topics.map((topic) => (
         <TopicCard topic={topic} highlight={id === topic.id} />
       ))}
