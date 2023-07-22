@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import CustomDrawer from "./CustomDrawer";
+import CustomDrawer from "./organisms/CustomDrawer";
 import { Grid } from "@mui/material";
-import ThreadList from "./ThreadList";
+import ThreadList from "./organisms/ThreadList";
 
 const drawerWidth: number = 300;
 

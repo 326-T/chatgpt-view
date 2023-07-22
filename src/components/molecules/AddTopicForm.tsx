@@ -1,23 +1,18 @@
 import React from "react";
-import axios from "axios";
 
 import { Box, Button, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import AddCommentIcon from "@mui/icons-material/AddComment";
+import { postTopic } from "@/app/api/TopicApi";
+import { Topic } from "@/app/type";
 
-// export default function ThreadCard({ thread }: { thread: Thread }) {
-
-export default function AddThreadForm() {
+export default function AddThreadForm({ topic }: { topic: Topic }) {
   const theme = useTheme();
-  const post = async () => {
-    await axios.post("http://localhost:8000/message_logs/threads/", {
-      title: "New Chat",
-    });
-  };
+
   return (
     <Box
       component="form"
-      onSubmit={post}
+      onSubmit={() => postTopic(topic)}
       sx={{
         width: 0.8,
         p: 0.5,

@@ -2,8 +2,10 @@ export interface Message {
   id: number;
   role: string;
   content: string;
-  thread: number;
-  created_at: Date;
+  topicId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  version: number;
 }
 
 const today = new Date();
@@ -12,6 +14,8 @@ export const MessageInit = {
   id: 0,
   role: "user",
   content: "",
-  thread: 0,
-  created_at: today,
+  topicId: "",
+  createdAt: today,
+  updatedAt: today,
+  version: 0,
 };

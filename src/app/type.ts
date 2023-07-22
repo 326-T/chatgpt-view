@@ -1,12 +1,17 @@
-export interface Thread {
+export interface Topic {
   id: number;
   title: string;
+  createdAt: Date;
+  updatedAt: Date;
+  version: number;
 }
 
 const today = new Date();
 
-export const ThreadInit = {
+export const TopicInit = {
   id: 0,
   title: "",
-  created_at: today,
+  createdAt: today,
+  updatedAt: today,
+  version: 0,
 };

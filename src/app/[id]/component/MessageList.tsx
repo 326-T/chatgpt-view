@@ -2,7 +2,6 @@ import { Message } from "@/app/[id]/type";
 import { Box, List } from "@mui/material";
 import React from "react";
 import MessageCard from "@/app/[id]/component/MessageCard";
-import AddChatForm from "../../../components/AddThreadForm";
 
 interface MessageListProps {
   messages: Message[];
