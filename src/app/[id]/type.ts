@@ -1,5 +1,5 @@
 export interface Message {
-  id: number;
+  id: string;
   role: string;
   content: string;
   topicId: string;
@@ -11,7 +11,7 @@ export interface Message {
 const today = new Date();
 
 export const MessageInit = {
-  id: 0,
+  id: "",
   role: "user",
   content: "",
   topicId: "",

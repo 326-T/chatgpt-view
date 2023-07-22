@@ -3,3 +3,7 @@
   height: 40px;
   min-width: none;
 }
+
+.body {
+  margin: 0;
+}

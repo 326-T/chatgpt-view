@@ -7,11 +7,7 @@ import { Box } from "@mui/material";
 
 import { Message } from "@/app/[id]/type";
 
-interface MessageCardProps {
-  message: Message;
-}
-
-const MessageCard: React.FC<MessageCardProps> = ({ message }) => {
+export default function MessageCard({ message }: { message: Message }) {
   const theme = useTheme();
 
   return (
@@ -19,12 +15,18 @@ const MessageCard: React.FC<MessageCardProps> = ({ message }) => {
       sx={
         message.role === "user"
           ? {
-              backgroundColor: theme.palette.background.paper,
-              color: theme.palette.common.black,
-            }
-          : {
               backgroundColor: theme.palette.background.default,
               color: theme.palette.common.black,
+              borderTop: 1 / 2,
+              borderBottom: 1 / 2,
+              borderColor: "#DEDEDF",
+            }
+          : {
+              backgroundColor: theme.palette.background.paper,
+              color: theme.palette.common.black,
+              borderTop: 1 / 2,
+              borderBottom: 1 / 2,
+              borderColor: "#DEDEDF",
             }
       }
     >
@@ -43,6 +45,4 @@ const MessageCard: React.FC<MessageCardProps> = ({ message }) => {
       </Box>
     </Box>
   );
-};
-
-export default MessageCard;
+}

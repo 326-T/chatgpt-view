@@ -7,7 +7,7 @@ import TopicCard from "@/components/molecules/TopicCard";
 import AddTopicForm from "@/components/molecules/AddTopicForm";
 import { fetchTopics } from "@/app/api/TopicApi";
 
-export default function TopicList() {
+export default function TopicList({ id }: { id: string }) {
   const theme = useTheme();
 
   const [topic, setTopic] = useState<Topic>(TopicInit);
@@ -18,12 +18,22 @@ export default function TopicList() {
   }, []);
 
   return (
-    <List sx={{ height: 1, p: 0 }}>
+    <Box
+      sx={{
+        width: 1,
+        height: 1,
+        p: 1,
+        m: 0,
+        boxSizing: "border-box",
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+      }}
+    >
       <AddTopicForm topic={topic} />
 
       {topics.map((topic) => (
-        <TopicCard topic={topic} />
+        <TopicCard topic={topic} highlight={id === topic.id} />
       ))}
-    </List>
+    </Box>
   );
 }

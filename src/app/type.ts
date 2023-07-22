@@ -1,5 +1,5 @@
 export interface Topic {
-  id: number;
+  id: string;
   title: string;
   createdAt: Date;
   updatedAt: Date;
@@ -9,7 +9,7 @@ export interface Topic {
 const today = new Date();
 
 export const TopicInit = {
-  id: 0,
+  id: "",
   title: "",
   createdAt: today,
   updatedAt: today,

@@ -4,7 +4,7 @@ import { Topic } from "@/app/type";
 import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
 import { makeStyles } from "@mui/styles";
-import CommentIcon from "@mui/icons-material/Comment";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import { deleteTopic } from "@/app/api/TopicApi";
@@ -16,37 +16,60 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TopicCard({ topic }: { topic: Topic }) {
+export default function TopicCard({
+  topic,
+  highlight,
+}: {
+  topic: Topic;
+  highlight?: boolean;
+}) {
   const classes = useStyles();
 
   return (
     <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: 1,
-        p: 1.5,
-      }}
+      sx={
+        highlight
+          ? {
+              display: "flex",
+              justifyContent: "space-between",
+              width: 1,
+              p: 1.5,
+              boxSizing: "border-box",
+              backgroundColor: "#343541",
+            }
+          : {
+              display: "flex",
+              justifyContent: "space-between",
+              width: 1,
+              p: 1.5,
+              boxSizing: "border-box",
+            }
+      }
     >
       <Link
         href={`/${topic.id}`}
         id={topic.id.toString()}
         className={classes.link}
       >
-        <Box sx={{ display: "flex" }}>
-          <CommentIcon />
-          <Typography sx={{ ml: 2, mr: 2 }}>{topic.title}</Typography>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <ChatBubbleOutlineIcon style={{ fontSize: 16 }} />
+          <Typography sx={{ ml: 1, mr: 1, fontSize: 14 }}>
+            {topic.title}
+          </Typography>
         </Box>
       </Link>
-      <Box>
-        <Button sx={{ p: 0, minWidth: 0 }} onClick={() => {}}>
-          <EditIcon />
+      <Box sx={{ display: "flex", alignItems: "centor" }}>
+        <Button
+          sx={{ p: 0, mr: 1, minWidth: 0, color: "inherit" }}
+          onClick={() => {}}
+        >
+          <EditIcon style={{ fontSize: 16 }} />
         </Button>
         <Button
-          sx={{ p: 0, minWidth: 0 }}
+          sx={{ p: 0, minWidth: 0, color: "inherit" }}
           onClick={() => deleteTopic(topic.id)}
         >
-          <DeleteForeverIcon />
+          <DeleteForeverIcon style={{ fontSize: 16 }} />
         </Button>
       </Box>
     </Box>

@@ -9,20 +9,24 @@ interface DashBoardLayoutProps {
   children: React.ReactNode;
 }
 
-const DashBoardLayout: React.FC<DashBoardLayoutProps> = ({ children }) => {
+export default function DashBoardLayout({
+  children,
+  id,
+}: {
+  children: React.ReactNode;
+  id: string;
+}) {
   return (
     <>
       <CustomDrawer />
       <Grid container>
-        <Grid item md={2} style={{ height: "100vh" }}>
-          <ThreadList />
+        <Grid item md={2.4} style={{ height: "100vh" }}>
+          <ThreadList id={id} />
         </Grid>
-        <Grid item md={10} style={{ height: "100vh" }}>
+        <Grid item md={9.6} style={{ height: "100vh" }}>
           {children}
         </Grid>
       </Grid>
     </>
   );
-};
-
-export default DashBoardLayout;
+}

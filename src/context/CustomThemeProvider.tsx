@@ -5,16 +5,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00bcd4",
+      main: "#202123",
       contrastText: "#fff",
     },
     secondary: {
-      main: "#b2ebf2",
-      contrastText: "#00bcd4",
+      main: "#343441",
+      contrastText: "#fff",
     },
     background: {
       default: "#fff",
-      paper: "#e0f7fa",
+      paper: "#f7f7f8",
     },
     common: {
       white: "#fff",
@@ -27,7 +27,7 @@ const theme = createTheme({
       main: "#FFC107", // 警告カラー
     },
     info: {
-      main: "#2196F3", // 情報カラー
+      main: "#19C37D", // 情報カラー
     },
     success: {
       main: "#4CAF50", // 成功カラー

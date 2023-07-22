@@ -17,7 +17,7 @@ export default function DashBoardPage({ params }: { params: { id: string } }) {
   }, []);
 
   return (
-    <DashBoardLayout>
+    <DashBoardLayout id={params.id}>
       <MessageList messages={messages} />
       <Box sx={{ width: 5 / 6, position: "absolute", bottom: 20 }}>
         <Form

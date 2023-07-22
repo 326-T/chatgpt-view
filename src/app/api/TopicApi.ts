@@ -9,7 +9,7 @@ export const postTopic = async (topic: Topic) => {
   return axios.post("http://localhost:8080/topics", topic);
 };
 
-export const deleteTopic = async (id: number) => {
+export const deleteTopic = async (id: string) => {
   axios.delete(
     `http://localhost:8080/topics/${id}`
   );
