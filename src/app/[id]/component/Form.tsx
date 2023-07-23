@@ -19,7 +19,6 @@ export default function Form({
   return (
     <Paper
       component="form"
-      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         justifyContent: "space-between",
@@ -39,7 +38,7 @@ export default function Form({
         disableUnderline
       />
       <Button
-        type="submit"
+        onClick={handleSubmit}
         variant="contained"
         color="info"
         className={styles.button}

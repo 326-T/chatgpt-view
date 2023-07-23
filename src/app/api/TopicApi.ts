@@ -1,16 +1,16 @@
-import axios from "axios";
+import axios from "@/util/axios";
 import { Topic } from "../type";
 
 export const fetchTopics = async () => {
-  return axios.get("http://localhost:8080/topics");
+  return axios.get("/topics");
 };
 
 export const postTopic = async (topic: Topic) => {
-  return axios.post("http://localhost:8080/topics", topic);
+  return axios.post("/topics", topic);
 };
 
 export const deleteTopic = async (id: string) => {
   axios.delete(
-    `http://localhost:8080/topics/${id}`
+    `/topics/${id}`
   );
 };

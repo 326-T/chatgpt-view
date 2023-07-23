@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { Box, Button, SxProps, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -14,6 +15,7 @@ export default function AddTopicCard({
   sx?: SxProps;
 }) {
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <Box
@@ -27,7 +29,7 @@ export default function AddTopicCard({
     >
       <Box
         component="form"
-        onSubmit={() => postTopic(topic)}
+        onSubmit={() => router.push("/")}
         sx={{
           width: 1,
           p: 0.5,

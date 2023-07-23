@@ -23,9 +23,12 @@ export default function DashBoardPage({ params }: { params: { id: string } }) {
         <Form
           content={message.content}
           onChange={(e) => setMessage({ ...message, content: e.target.value })}
-          handleSubmit={async () => {
-            await postMessage({ ...message, topicId: params.id });
-            fetchMessages(params.id).then((result) => setMessages(result.data));
+          handleSubmit={() => {
+            postMessage({ ...message, topicId: params.id }).then(() => {
+              fetchMessages(params.id).then((result) =>
+                setMessages(result.data)
+              );
+            });
           }}
         />
       </Box>
