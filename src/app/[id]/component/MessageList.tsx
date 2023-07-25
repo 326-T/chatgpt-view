@@ -8,7 +8,7 @@ export default function MessageList({ messages }: { messages: Message[] }) {
   return (
     <Box height="inherit" overflow="auto">
       {messages.map((message) => (
-        <MessageCard message={message} />
+        <MessageCard message={message} key={message.id} />
       ))}
       <EmptyCard />
     </Box>

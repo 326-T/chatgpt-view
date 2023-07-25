@@ -27,7 +27,6 @@ export default function TopicCard({
 
   return (
     <Box
-      key={topic.id}
       sx={
         highlight
           ? {

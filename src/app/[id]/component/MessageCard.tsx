@@ -12,7 +12,6 @@ export default function MessageCard({ message }: { message: Message }) {
 
   return (
     <Box
-      key={message.id}
       sx={
         message.role === "user"
           ? {

@@ -19,7 +19,7 @@ export default function TopicList({ id }: { id: string }) {
   return (
     <Box overflow="auto" sx={{ width: 1, p: 1, boxSizing: "border-box" }}>
       {topics.map((topic) => (
-        <TopicCard topic={topic} highlight={id === topic.id} />
+        <TopicCard topic={topic} highlight={id === topic.id} key={topic.id} />
       ))}
     </Box>
   );

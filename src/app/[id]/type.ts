@@ -19,3 +19,13 @@ export const MessageInit = {
   updatedAt: today,
   version: 0,
 };
+
+export interface PostMessageCondition {
+  useMemory: boolean;
+  respond: boolean;
+}
+
+export const PostMessageConditionInit = {
+  useMemory: false,
+  respond: true,
+};
